@@ -5,9 +5,9 @@ import "fmt"
 func main() {
 	PrintSegitiga(5)
 
-	fmt.Println(GenPass("shella", "low"))
-	fmt.Println(GenPass("shella", "med"))
-	fmt.Println(GenPass("shella", "strong"))
+	fmt.Println(GenPass("abcd", "low"))
+	fmt.Println(GenPass("abcd", "med"))
+	fmt.Println(GenPass("abcd", "strong"))
 
 	fmt.Println(SistemMenonton(7))
 }
