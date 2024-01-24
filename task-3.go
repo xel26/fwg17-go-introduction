@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func sistemMenonton(n int) string {
+func SistemMenonton(n int) string {
 	data := []int{1, 7, 3, 4, 8, 9}
 	sliceLength := len(data)
 
@@ -10,7 +10,6 @@ func sistemMenonton(n int) string {
 
 	for index, value := range data {
 		for i := 1; i < sliceLength - index; i++ {
-			fmt.Println(value, data[i])
 			
 			if value + data[i] == n {
 				output = fmt.Sprintf("%v dan %v", value, data[i])

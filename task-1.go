@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func printSegitiga(lines int) {
+func PrintSegitiga(lines int) {
 	fmt.Printf("printSegitiga %v \n", lines)
 	output := ""
 
