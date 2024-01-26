@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	PrintSegitiga(5)
+	// PrintSegitiga(5)
 
-	fmt.Println(GenPass("abcd", "low"))
-	fmt.Println(GenPass("abcd", "med"))
-	fmt.Println(GenPass("abcd", "strong"))
+	pass := "fazztrack"
+	complex := "med"
+	fmt.Println(GenPass(&pass, &complex))
 
-	fmt.Println(SistemMenonton(7))
+	// fmt.Println(SistemMenonton(7))
 }
