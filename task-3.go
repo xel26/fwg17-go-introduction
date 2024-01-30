@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func SistemMenonton(n int) string {
+func SistemMenonton(n int) (string, bool) {
 	data := []int{1, 7, 3, 4, 8, 9}
 
 	var output string
@@ -22,8 +22,8 @@ func SistemMenonton(n int) string {
 	}
 
 	if output == ""{
-		output = "data tidak di temukan"
+		return "data tidak ditemukan", false
 	}
 
-	return output
+	return output, true
 }

@@ -7,33 +7,18 @@ import (
 )
 
 
-func handlePanic(){
-	if a := recover(); a != ""{
-		fmt.Println("RECOVER", a)
-	}
-}
-
-// 	pass := "rahasia"
-//	complex := ""
-//  password := &pass
-//  fmt.println(*password)
-//  fmt.prntln(&password)
-
-
-func GenPass(password *string, complexity *string) string {
-	// defer handlePanic()
-	// fmt.Println("program tidak crash, dan dapat mengambil tindakan setelah terjadi panic")
-
+func GenPass(password *string, complexity *string) (string, bool) {
+	
 	if *password == ""{
-		panic("Error: password must be filled")
+		 return "Error: password must be filled", false
 	}
-
+	
 	if len(*password) < 6{
-		panic("Error: password must be at least 6 character")
+		return "Error: password must be at least 6 character", false
 	}
 
 	if *complexity == ""{
-		panic("Error: complexity must be filled ")
+		return "Error: complexity must be filled", false
 	}
 
 
@@ -59,21 +44,18 @@ func GenPass(password *string, complexity *string) string {
 
 
 	addNumber := func() string{
-		*password = addUpperCase()
-		fmt.Println("password dari addUpperCase ", *password)
+		valuePassword := addUpperCase()
+		fmt.Println("password dari addUpperCase ", valuePassword)
 
 		amountNumber := rand.Intn(len(*password)-3) + 1
-		fmt.Println("banyak angka ", amountNumber)
 
-		valuePassword := *password
+		
 
 
 		for i := 1; i <= amountNumber; i++{
 			randomIndex := rand.Intn(len(*password))
-			fmt.Println("random index ", randomIndex)
 
 			valuePassword = valuePassword[:randomIndex] + string(number[randomIndex]) + valuePassword[randomIndex:]
-			fmt.Println(valuePassword)
 		}
 
 		*password = valuePassword
@@ -83,21 +65,16 @@ func GenPass(password *string, complexity *string) string {
 
 
 	addSymbol := func() string{
-		*password = addNumber()
-		fmt.Println("password dari addNumber ", *password)
+		valuePassword := addNumber()
 
 		amountSymbol := rand.Intn(len(*password)-3) + 1
-		fmt.Println("banyak symbol ", amountSymbol)
 
-		valuePassword := *password
 
 
 		for i := 1; i <= amountSymbol; i++{
 			randomIndex := rand.Intn(len(*password))
-			fmt.Println("random index ", randomIndex)
 
 			valuePassword = valuePassword[:randomIndex] + string(symbol[randomIndex]) + valuePassword[randomIndex:]
-			fmt.Println(valuePassword)
 		}
 
 		*password = valuePassword
@@ -117,5 +94,5 @@ func GenPass(password *string, complexity *string) string {
 
 
 
-	return *password
+	return *password, true
 }
